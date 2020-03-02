@@ -89,7 +89,7 @@ function checkWinningMove()
 	while(($index<8))
 	do
 		if [[ ${gameBoard[$index]} == $letter && ${gameBoard[$((index+1))]} == $letter && ${gameBoard[$((index+2))]} == $IS_EMPTY ]]
-   	then
+		then
 			gameBoard[$((index+2))]=$letter
 			compPlay=1
 			return
