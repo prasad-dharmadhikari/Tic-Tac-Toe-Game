@@ -93,49 +93,49 @@ function checkWinningMove()
 			gameBoard[$((index+2))]=$letter
 			compPlay=1
 			return
-      elif [[ ${gameBoard[$index]} == $letter && ${gameBoard[$((index+2))]} == $letter && ${gameBoard[$((index+1))]} == $IS_EMPTY ]]
-      then
-         gameBoard[$((index+1))]=$letter
-         compPlay=1
-         return
+		elif [[ ${gameBoard[$index]} == $letter && ${gameBoard[$((index+2))]} == $letter && ${gameBoard[$((index+1))]} == $IS_EMPTY ]]
+		then
+			gameBoard[$((index+1))]=$letter
+			compPlay=1
+			return
 		elif [[ ${gameBoard[$((index+2))]} == $letter && ${gameBoard[$((index+1))]} == $letter && ${gameBoard[$index]} == $IS_EMPTY ]]
-      then
-         gameBoard[$index]=$letter
-         compPlay=1
-         return
+		then
+			gameBoard[$index]=$letter
+			compPlay=1
+			return
 		elif [[ ${gameBoard[$index]} == $letter && ${gameBoard[$((index+3))]} == $letter && ${gameBoard[$((index+6))]} == $IS_EMPTY ]]
-      then
-         gameBoard[$((index+6))]=$letter
-         compPlay=1
-         return
+		then
+			gameBoard[$((index+6))]=$letter
+			compPlay=1
+			return
 		elif [[ ${gameBoard[$index]} == $letter && ${gameBoard[$((index+6))]} == $letter && ${gameBoard[$((index+3))]} == $IS_EMPTY ]]
-      then
-         gameBoard[$((index+3))]=$letter
-         compPlay=1
-         return
+		then
+			gameBoard[$((index+3))]=$letter
+			compPlay=1
+			return
 		elif [[ ${gameBoard[$((index+3))]} == $letter && ${gameBoard[$((index+6))]} == $letter && ${gameBoard[$index]} == $IS_EMPTY ]]
-      then
-         gameBoard[$index]=$letter
-         compPlay=1
-         return
+		then
+			gameBoard[$index]=$letter
+			compPlay=1
+			return
 		fi
 		index=$((index+3))
 	done
 	if [[ ${gameBoard[0]} == $letter && ${gameBoard[4]} == $letter && ${gameBoard[8]} == $IS_EMPTY ]]
 	then
 		gameBoard[8]=$letter
-   	compPlay=1
-   	return
+		compPlay=1
+		return
 	elif [[ ${gameBoard[0]} == $letter && ${gameBoard[8]} == $letter && ${gameBoard[4]} == $IS_EMPTY ]]
 	then
-   	gameBoard[4]=$letter
-   	compPlay=1
-   return
+		gameBoard[4]=$letter
+		compPlay=1
+		return
 	elif [[ ${gameBoard[8]} == $letter && ${gameBoard[4]} == $letter && ${gameBoard[0]} == $IS_EMPTY ]]
 	then
-   	gameBoard[0]=$letter
-   	compPlay=1
-   return
+		gameBoard[0]=$letter
+		compPlay=1
+		return
 	fi
 	if [[ ${gameBoard[2]} == $letter && ${gameBoard[4]} == $letter && ${gameBoard[6]} == $IS_EMPTY ]]
 	then
@@ -144,14 +144,14 @@ function checkWinningMove()
 		return
 	elif [[ ${gameBoard[2]} == $letter && ${gameBoard[6]} == $letter && ${gameBoard[4]} == $IS_EMPTY ]]
 	then
-   	gameBoard[4]=$letter
-   	compPlay=1
-   	return
+		gameBoard[4]=$letter
+		compPlay=1
+		return
 	elif [[ ${gameBoard[6]} == $letter && ${gameBoard[4]} == $letter && ${gameBoard[2]} == $IS_EMPTY ]]
 	then
-   	gameBoard[2]=$letter
-   	compPlay=1
-   	return
+		gameBoard[2]=$letter
+		compPlay=1
+		return
 	fi
 }
 function computerTurn()
