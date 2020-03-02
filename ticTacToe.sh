@@ -35,7 +35,52 @@ function playerTurn()
 	fi
 	displayBoard
 }
-function getLetter()
+function checkWin()
+{
+	letter=$1
+	if [ "${gameBoard[0]}${gameBoard[1]}${gameBoard[2]}"=="$letter$letter$letter" ]
+	then
+		result="wins"
+	elif [ "${gameBoard[3]}${gameBoard[4]}${gameBoard[5]}"=="$letter$letter$letter" ]
+	then
+		result="wins"
+	elif [ "${gameBoard[6]}${gameBoard[7]}${gameBoard[8]}"=="$letter$letter$letter" ]
+	then
+		result="wins"
+	elif [ "${gameBoard[0]}${gameBoard[3]}${gameBoard[6]}"=="$letter$letter$letter" ]
+	then
+		result="wins"
+	elif [ "${gameBoard[1]}${gameBoard[4]}${gameBoard[7]}"=="$letter$letter$letter" ]
+	then
+		result="wins"
+	elif [ "${gameBoard[2]}${gameBoard[5]}${gameBoard[8]}"=="$letter$letter$letter" ]
+	then
+		result="wins"
+	elif [ "${gameBoard[0]}${gameBoard[4]}${gameBoard[8]}"=="$letter$letter$letter" ]
+	then
+		result="wins"
+	elif [ "${gameBoard[2]}${gameBoard[4]}${gameBoard[6]}"=="$letter$letter$letter" ]
+	then
+		result="wins"
+	else
+		flag=0
+		for((index=0;index<${#gameBoard[@]};index++))
+		do
+			if [[ "${gameBoard[$response]}"!=X || "${gameBoard[$response]}"!=O ]]
+			then
+				flag=1
+			fi
+		done
+		if [ $flag==0 ]
+		then
+			result="draw"
+		else
+			result="change"
+		fi
+	fi
+	echo $result
+}
+function assignLetter()
 {
 	letterCheck=$((RANDOM%2))
 	case $letterCheck in
@@ -60,6 +105,7 @@ function getTurn()
 		;;
 	esac
 }
-letter="$( getLetter)"
+letter="$( assignLetter)"
 getTurn
 playerTurn $letter
+checkWin $playerLetter
